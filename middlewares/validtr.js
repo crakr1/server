@@ -9,11 +9,20 @@ const userValidationRules = () => {
     ]
 }
 
-const updateUserValidationResult = () => {
+const updateUserValidationRules = () => {
     return[
         body('name').notEmpty().withMessage('name is required'),
         body('password').notEmpty().withMessage('password is required'),
         body('password').isLength({min: 5}).withMessage('password most be 5 letter or mor')
+    ]
+}
+
+const postValidationRules = () => {
+    return[
+        body('title').notEmpty().withMessage('title is required'),
+        body('contents').notEmpty().withMessage('contents is required'),
+        body('steps').notEmpty().withMessage('steps is required'),
+
     ]
 }
 
@@ -29,6 +38,7 @@ const validate = (req, res, next) => {
 
 module.exports = {
     userValidationRules,
-    updateUserValidationResult,
+    updateUserValidationRules,
+    postValidationRules,
     validate
 }
