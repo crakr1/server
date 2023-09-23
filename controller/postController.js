@@ -14,15 +14,18 @@ exports.newPost= async(req, res) => {
             region,
             UserId: req.currentUser.id
         })
-        req.files.map(async function(file) {
-        const post_img = await models.Post_Image.create({
-                image_url: url + '/public/images/' + file.filename,
-                PostId: post.id
-            })
-        })
+        if (req.files && Array.isArray(req.files)) {
+            await Promise.all(req.files.map(async function (file) {
+                const post_img = await models.Post_Image.create({
+                    image_url: url + '/public/images/' + file.filename,
+                    PostId: post.id
+                });
+            }));
+        }
         res.status(200).json({message: "postied"})
     } catch(e) {
         res.status(500).json(e)
+        console.log(e)
     }
 }
 
@@ -132,6 +135,12 @@ exports.deleteMyPost = async (req, res) => {
                 })
             })
         })
+        await models.Comment.destroy({
+            where: {PostId: PostId}
+        })
+        await models.Like.destroy({
+            where: {PostId: PostId}
+        })
         await models.Post_Image.destroy({
             where: {PostId: PostId}
         });
@@ -141,5 +150,6 @@ exports.deleteMyPost = async (req, res) => {
          res.status(200).json({message: 'deleted'})
     } catch(e) {
         res.status(500).json(e)
+        console.log(e)
     }
 }

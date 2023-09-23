@@ -3,7 +3,7 @@ const db = require('./database')
 const models = require('.')
 
 const Comment = db.define('Comment', {
-    type: Sequelize.DataTypes.STRING
+    text: Sequelize.DataTypes.STRING
 }, {
     timestamps:false
 })
