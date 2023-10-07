@@ -28,3 +28,6 @@ db.sync({alter: true}).then(()=> {
         console.log('server started on port' + port)
     })
 })
+
+
+app.use('*/images', express.static(__dirname + '/public/images'))

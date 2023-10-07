@@ -83,7 +83,7 @@ exports.updateProfile = async(req, res) => {
         const update = await  models.User.update(
             {
                 name,
-                password
+                password : hashPassword
             },
             {where: {id: req.currentUser.id}}
         );
