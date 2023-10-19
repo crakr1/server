@@ -17,7 +17,7 @@ exports.register = async(req, res) => {
             })
             res.status(200).json({message: "user created"})
         }else{
-            res.status(400).json({message: "email is using before"})
+            res.status().json({message: "email is using before"})
         }
     }catch(e) {
         res.status(500).json(e)

@@ -32,11 +32,11 @@ router.delete('/my-post/delete', isLoggedIn, postController.deleteMyPost)
 
 
 router.post('/posts/:PostId/create-comment',isLoggedIn, commentController.createComment)
-router.get('/posts/:PostId/getComment', isLoggedIn, commentController.getComment)
+router.get('/posts/:PostId/get-comments', isLoggedIn, commentController.getComment)
 
 
-router.put('/post/:PostId/like', isLoggedIn, likeController.like)
-router.get('/post/:PostId/like-count', isLoggedIn, likeController.likeCount)
+router.put('/posts/:PostId/like', isLoggedIn, likeController.like)
+router.get('/posts/:PostId/like-count', isLoggedIn, likeController.likeCount)
 
 
 module.exports = router 

@@ -2,7 +2,7 @@ const models = require('../models')
 const fs = require('fs/promises')
 
 exports.newPost= async(req, res) => {
-    const {title, contents, steps, country, region } = req.body
+    const {title, contents, steps, } = req.body
     const url = req.protocol + '://' + req.get('host')
 
     try{
@@ -10,8 +10,6 @@ exports.newPost= async(req, res) => {
             title,
             contents,
             steps,
-            country,
-            region,
             UserId: req.currentUser.id
         })
         if (req.files && Array.isArray(req.files)) {
