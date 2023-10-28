@@ -8,7 +8,7 @@ const db = require('./models/database')
 
 const models = require('./models')
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT|| 5000
 
 const app = express();
 
