@@ -8,7 +8,7 @@ const db = require('./models/database')
 
 const models = require('./models')
 
-const port = process.env.PORT|| 5000
+const port = process.env.PORT || 5000
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use('/', router);
 
 db.sync({alter: true}).then(()=> {
     app.listen(port, () => {
-        console.log('server started on port' + port)
+        console.log('server started on port '+ port)
     })
 })
 
