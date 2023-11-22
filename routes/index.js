@@ -22,7 +22,7 @@ router.get('/account/profile', isLoggedIn, userController.getProfile)
 router.put('/account/profile/upload-photo', upload.single('avatar'), isLoggedIn, userController.uploadUserPhoto)
 router.put('/account/profile/update', updateUserValidationRules(), validate,isLoggedIn, userController.updateProfile)
 
-router.post('/post/create',upload.array('postImg', 5), postValidationRules(), validate, isLoggedIn, postController.newPost)
+router.post('/post/create', upload.array('postImg', 5), postValidationRules(), validate, isLoggedIn, postController.newPost)
 router.get('/posts', isLoggedIn, postController.getAllPosts)
 router.get('/posts/:PostId', isLoggedIn, postController.getPost)
 router.get('/my-post', isLoggedIn, postController.myAllPosts)

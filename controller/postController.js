@@ -20,7 +20,7 @@ exports.newPost= async(req, res) => {
                 });
             }));
         }
-        res.status(200).json({message: "postied"})
+        res.status(200).json({message: "posited"})
     } catch(e) {
         res.status(500).json(e)
         console.log(e)

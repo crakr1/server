@@ -21,7 +21,7 @@ const User = db.define('User', {
 });
 
 
-User.associte = models => {
+User.associate = models => {
     User.hasMany(models.Post)
     User.hasMany(models.Comment)
 }

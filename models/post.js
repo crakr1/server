@@ -19,11 +19,10 @@ const Post = db.define('Post', {
     }
 })
 
-Post.associte = models => {
+Post.associate = models => {
     Post.belongsTo(models.User);
     Post.hasMany(models.Post_Image);
     Post.hasMany(models.Comment)
-
 }
 
 module.exports = Post

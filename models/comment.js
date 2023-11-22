@@ -8,7 +8,7 @@ const Comment = db.define('Comment', {
     timestamps:false
 })
 
-Comment.associte = models => {
+Comment.associate = models => {
     Comment.belongsTo(models.User)
     Comment.belongsTo(models.Post)
 }

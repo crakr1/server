@@ -9,7 +9,7 @@ const Post_Image = db.define('Post_Image', {
     timestamps: false
 })
 
-Post_Image.associte = models => {
+Post_Image.associate = models => {
     Post_Image.belongsTo(models.Post)
 }
 
